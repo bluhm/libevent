@@ -633,11 +633,7 @@ int event_pending(struct event *ev, short event, struct timeval *tv);
   @return 1 if the structure has been initialized, or 0 if it has not been
           initialized
  */
-#ifdef WIN32
-#define event_initialized(ev)		((ev)->ev_flags & EVLIST_INIT && (ev)->ev_fd != (int)INVALID_HANDLE_VALUE)
-#else
 #define event_initialized(ev)		((ev)->ev_flags & EVLIST_INIT)
-#endif
 
 
 /**
