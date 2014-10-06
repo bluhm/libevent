@@ -31,11 +31,6 @@
 #include "config.h"
 #endif
 
-#ifdef WIN32
-#include <winsock2.h>
-#include <windows.h>
-#endif
-
 #ifdef HAVE_VASPRINTF
 /* If we have vasprintf, we need to define this before we include stdio.h. */
 #define _GNU_SOURCE
@@ -442,12 +437,7 @@ evbuffer_read(struct evbuffer *buf, int fd, int howmuch)
 	int n = EVBUFFER_MAX_READ;
 
 #if defined(FIONREAD)
-#ifdef WIN32
-	long lng = n;
-	if (ioctlsocket(fd, FIONREAD, &lng) == -1 || (n=lng) <= 0) {
-#else
 	if (ioctl(fd, FIONREAD, &n) == -1 || n <= 0) {
-#endif
 		n = EVBUFFER_MAX_READ;
 	} else if (n > EVBUFFER_MAX_READ && n > howmuch) {
 		/*
@@ -473,11 +463,7 @@ evbuffer_read(struct evbuffer *buf, int fd, int howmuch)
 	/* We can append new data at this point */
 	p = buf->buffer + buf->off;
 
-#ifndef WIN32
 	n = read(fd, p, howmuch);
-#else
-	n = recv(fd, p, howmuch, 0);
-#endif
 	if (n == -1)
 		return (-1);
 	if (n == 0)
@@ -497,11 +483,7 @@ evbuffer_write(struct evbuffer *buffer, int fd)
 {
 	int n;
 
-#ifndef WIN32
 	n = write(fd, buffer->buffer, buffer->off);
-#else
-	n = send(fd, buffer->buffer, buffer->off, 0);
-#endif
 	if (n == -1)
 		return (-1);
 	if (n == 0)
