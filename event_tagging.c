@@ -38,14 +38,7 @@
 #include <sys/param.h>
 #endif
 
-#ifdef WIN32
-#define WIN32_LEAN_AND_MEAN
-#include <winsock2.h>
-#include <windows.h>
-#undef WIN32_LEAN_AND_MEAN
-#else
 #include <sys/ioctl.h>
-#endif
 
 #include <sys/queue.h>
 #ifdef HAVE_SYS_TIME_H
@@ -56,9 +49,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#ifndef WIN32
 #include <syslog.h>
-#endif
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
