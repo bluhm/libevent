@@ -1,4 +1,4 @@
-#	$OpenBSD: Makefile,v 1.32 2014/04/03 11:27:02 eric Exp $
+#	$OpenBSD: Makefile,v 1.33 2014/10/06 21:16:03 bluhm Exp $
 
 LIB=	event
 SRCS=	buffer.c evbuffer.c event.c event_tagging.c evutil.c kqueue.c \

@@ -1,4 +1,4 @@
-/*	$OpenBSD: evsignal.h,v 1.4 2010/04/21 20:02:40 nicm Exp $	*/
+/*	$OpenBSD: evsignal.h,v 1.5 2014/10/06 21:16:03 bluhm Exp $	*/
 
 /*
  * Copyright 2000-2002 Niels Provos <provos@citi.umich.edu>
