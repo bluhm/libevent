@@ -1,4 +1,4 @@
-/*	$OpenBSD: event_tagging.c,v 1.4 2013/04/17 15:33:02 deraadt Exp $	*/
+/*	$OpenBSD: event_tagging.c,v 1.5 2014/10/08 20:14:19 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2003, 2004 Niels Provos <provos@citi.umich.edu>
