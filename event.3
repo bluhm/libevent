@@ -331,6 +331,8 @@ The functions
 and
 .Fn signal_pending
 are abbreviations.
+Signal handlers are installed with
+.Dv SA_RESTART .
 The event type will be a persistent
 .Va EV_SIGNAL .
 That means
