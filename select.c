@@ -1,4 +1,4 @@
-/*	$OpenBSD: select.c,v 1.18 2014/10/11 04:07:39 doug Exp $	*/
+/*	$OpenBSD: select.c,v 1.19 2014/10/16 07:38:06 bluhm Exp $	*/
 
 /*
  * Copyright 2000-2002 Niels Provos <provos@citi.umich.edu>
