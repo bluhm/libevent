@@ -32,9 +32,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#ifdef HAVE_STDLIB_H
 #include <stdlib.h>
-#endif
 #include <errno.h>
 #include <stdio.h>
 #include <signal.h>
