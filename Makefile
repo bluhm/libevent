@@ -60,7 +60,6 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG \
 	-DHAVE_FD_MASK \
-	-DHAVE_POLL \
 	-DHAVE_SELECT \
 	-DHAVE_SETFD \
 	-DHAVE_STRLCPY \
