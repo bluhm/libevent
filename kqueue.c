@@ -27,8 +27,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define _GNU_SOURCE 1
-
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/queue.h>
