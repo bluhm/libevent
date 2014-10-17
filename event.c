@@ -56,9 +56,7 @@ extern const struct eventop pollops;
 #ifdef HAVE_EPOLL
 extern const struct eventop epollops;
 #endif
-#ifdef HAVE_WORKING_KQUEUE
 extern const struct eventop kqops;
-#endif
 #ifdef HAVE_DEVPOLL
 extern const struct eventop devpollops;
 #endif
@@ -68,9 +66,7 @@ static const struct eventop *eventops[] = {
 #ifdef HAVE_EVENT_PORTS
 	&evportops,
 #endif
-#ifdef HAVE_WORKING_KQUEUE
 	&kqops,
-#endif
 #ifdef HAVE_EPOLL
 	&epollops,
 #endif
