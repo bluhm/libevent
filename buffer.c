@@ -34,10 +34,7 @@
 
 #include <sys/types.h>
 #include <sys/time.h>
-
-#ifdef HAVE_SYS_IOCTL_H
 #include <sys/ioctl.h>
-#endif
 
 #include <assert.h>
 #include <errno.h>
