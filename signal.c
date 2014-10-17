@@ -63,14 +63,10 @@ evsignal_cb(int fd, short what, void *arg)
 		event_err(1, "%s: read", __func__);
 }
 
-#ifdef HAVE_SETFD
 #define FD_CLOSEONEXEC(x) do { \
         if (fcntl(x, F_SETFD, FD_CLOEXEC) == -1) \
                 event_warn("fcntl(%d, F_SETFD)", x); \
 } while (0)
-#else
-#define FD_CLOSEONEXEC(x)
-#endif
 
 int
 evsignal_init(struct event_base *base)

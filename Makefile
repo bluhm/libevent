@@ -59,7 +59,6 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 	event.3 event_asr_abort.3
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG \
-	-DHAVE_SETFD \
 	-DHAVE_STRLCPY \
 	-DHAVE_STRSEP \
 	-DHAVE_STRTOK_R
