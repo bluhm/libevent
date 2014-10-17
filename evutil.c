@@ -128,10 +128,8 @@ evutil_issetugid(void)
 	return issetugid();
 #else
 
-#ifdef HAVE_GETEUID
 	if (getuid() != geteuid())
 		return 1;
-#endif
 	if (getgid() != getegid())
 		return 1;
 	return 0;
