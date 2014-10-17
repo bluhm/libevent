@@ -43,9 +43,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <syslog.h>
-#ifdef HAVE_UNISTD_H
 #include <unistd.h>
-#endif
 
 #include "event.h"
 #include "evutil.h"
