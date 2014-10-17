@@ -29,12 +29,9 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
-#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
-#else 
-#include <sys/_libevent_time.h>
-#endif
 #include <sys/queue.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
