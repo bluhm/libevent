@@ -124,16 +124,7 @@ evutil_vsnprintf(char *buf, size_t buflen, const char *format, va_list ap)
 static int
 evutil_issetugid(void)
 {
-#ifdef HAVE_ISSETUGID
 	return issetugid();
-#else
-
-	if (getuid() != geteuid())
-		return 1;
-	if (getgid() != getegid())
-		return 1;
-	return 0;
-#endif
 }
 
 const char *
