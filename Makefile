@@ -59,8 +59,6 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 	event.3 event_asr_abort.3
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG \
-	-DHAVE_CLOCK_GETTIME \
-	-DHAVE_CLOCK_MONOTONIC \
 	-DHAVE_FD_MASK \
 	-DHAVE_GETADDRINFO \
 	-DHAVE_GETEGID \
