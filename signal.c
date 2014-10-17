@@ -38,9 +38,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
-#ifdef HAVE_FCNTL_H
 #include <fcntl.h>
-#endif
 #include <assert.h>
 
 #include "event.h"

@@ -31,9 +31,7 @@
 #include <sys/socket.h>
 
 #include <unistd.h>
-#ifdef HAVE_FCNTL_H
 #include <fcntl.h>
-#endif
 #ifdef HAVE_STDLIB_H
 #include <stdlib.h>
 #endif
