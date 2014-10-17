@@ -68,13 +68,7 @@ evutil_make_socket_nonblocking(int fd)
 ev_int64_t
 evutil_strtoll(const char *s, char **endptr, int base)
 {
-#ifdef HAVE_STRTOLL
 	return (ev_int64_t)strtoll(s, endptr, base);
-#elif SIZEOF_LONG == 8
-	return (ev_int64_t)strtol(s, endptr, base);
-#else
-#error "I don't know how to parse 64-bit integers."
-#endif
 }
 
 int
