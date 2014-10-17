@@ -28,9 +28,6 @@
  */
 
 #include <sys/types.h>
-#ifdef HAVE_SYS_PARAM_H
-#include <sys/param.h>
-#endif
 #include <sys/ioctl.h>
 #include <sys/queue.h>
 #include <sys/time.h>
