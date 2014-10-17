@@ -48,31 +48,13 @@
 #include "evutil.h"
 #include "log.h"
 
-#ifdef HAVE_EVENT_PORTS
-extern const struct eventop evportops;
-#endif
 extern const struct eventop selectops;
 extern const struct eventop pollops;
-#ifdef HAVE_EPOLL
-extern const struct eventop epollops;
-#endif
 extern const struct eventop kqops;
-#ifdef HAVE_DEVPOLL
-extern const struct eventop devpollops;
-#endif
 
 /* In order of preference */
 static const struct eventop *eventops[] = {
-#ifdef HAVE_EVENT_PORTS
-	&evportops,
-#endif
 	&kqops,
-#ifdef HAVE_EPOLL
-	&epollops,
-#endif
-#ifdef HAVE_DEVPOLL
-	&devpollops,
-#endif
 	&pollops,
 	&selectops,
 	NULL
