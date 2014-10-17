@@ -45,8 +45,8 @@
 #include <stdarg.h>
 #include <string.h>
 #include <errno.h>
-#include "event.h"
 
+#include "event.h"
 #include "log.h"
 #include "evutil.h"
 

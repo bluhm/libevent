@@ -46,7 +46,7 @@
 
 #include "event.h"
 #include "evutil.h"
-#include "./log.h"
+#include "log.h"
 
 struct evbuffer *
 evbuffer_new(void)

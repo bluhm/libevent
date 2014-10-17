@@ -29,6 +29,7 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/queue.h>
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -37,7 +38,6 @@
 #include <stdio.h>
 #include <signal.h>
 
-#include <sys/queue.h>
 #include "event.h"
 #include "event-internal.h"
 #include "evutil.h"
