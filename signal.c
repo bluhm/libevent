@@ -30,9 +30,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/queue.h>
-#ifdef HAVE_SYS_SOCKET_H
 #include <sys/socket.h>
-#endif
 
 #include <signal.h>
 #include <stdio.h>
