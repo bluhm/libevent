@@ -1,4 +1,4 @@
-/*	$OpenBSD: log.c,v 1.8 2014/10/16 07:38:06 bluhm Exp $	*/
+/*	$OpenBSD: log.c,v 1.9 2014/10/17 19:16:01 bluhm Exp $	*/
 
 /*
  * log.c

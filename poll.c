@@ -1,4 +1,4 @@
-/*	$OpenBSD: poll.c,v 1.18 2014/10/16 07:38:06 bluhm Exp $	*/
+/*	$OpenBSD: poll.c,v 1.19 2014/10/17 19:16:01 bluhm Exp $	*/
 
 /*
  * Copyright 2000-2003 Niels Provos <provos@citi.umich.edu>
