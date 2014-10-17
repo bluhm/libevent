@@ -51,9 +51,7 @@
 #ifdef HAVE_EVENT_PORTS
 extern const struct eventop evportops;
 #endif
-#ifdef HAVE_SELECT
 extern const struct eventop selectops;
-#endif
 extern const struct eventop pollops;
 #ifdef HAVE_EPOLL
 extern const struct eventop epollops;
@@ -80,9 +78,7 @@ static const struct eventop *eventops[] = {
 	&devpollops,
 #endif
 	&pollops,
-#ifdef HAVE_SELECT
 	&selectops,
-#endif
 	NULL
 };
 
