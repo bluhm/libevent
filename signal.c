@@ -63,11 +63,6 @@ evsignal_cb(int fd, short what, void *arg)
 		event_err(1, "%s: read", __func__);
 }
 
-#define FD_CLOSEONEXEC(x) do { \
-        if (fcntl(x, F_SETFD, FD_CLOEXEC) == -1) \
-                event_warn("fcntl(%d, F_SETFD)", x); \
-} while (0)
-
 int
 evsignal_init(struct event_base *base)
 {
@@ -84,8 +79,10 @@ evsignal_init(struct event_base *base)
 		return -1;
 	}
 
-	FD_CLOSEONEXEC(base->sig.ev_signal_pair[0]);
-	FD_CLOSEONEXEC(base->sig.ev_signal_pair[1]);
+	if (fcntl(base->sig.ev_signal_pair[0], F_SETFD, FD_CLOEXEC) == -1)
+		event_warn("fcntl(ignal_pair[0], FD_CLOEXEC)");
+	if (fcntl(base->sig.ev_signal_pair[1], F_SETFD, FD_CLOEXEC) == -1)
+		event_warn("fcntl(signal_pair[1], FD_CLOEXEC)");
 	base->sig.sh_old = NULL;
 	base->sig.sh_old_max = 0;
 	base->sig.evsignal_caught = 0;
