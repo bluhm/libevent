@@ -30,7 +30,6 @@
 #define _MIN_HEAP_H_
 
 #include "event.h"
-#include "evutil.h"
 
 typedef struct min_heap
 {

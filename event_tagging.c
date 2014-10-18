@@ -40,7 +40,6 @@
 #include <unistd.h>
 
 #include "event.h"
-#include "evutil.h"
 #include "log.h"
 
 int evtag_decode_int(ev_uint32_t *pnumber, struct evbuffer *evbuf);

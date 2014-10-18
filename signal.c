@@ -44,7 +44,6 @@
 #include "event.h"
 #include "event-internal.h"
 #include "evsignal.h"
-#include "evutil.h"
 #include "log.h"
 
 struct event_base *evsignal_base = NULL;

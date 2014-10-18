@@ -40,7 +40,6 @@
 #include <unistd.h>
 
 #include "event.h"
-#include "evutil.h"
 #include "log.h"
 
 struct evbuffer *

@@ -43,7 +43,6 @@
 #endif
 
 #include "event.h"
-#include "evutil.h"
 #include "event-internal.h"
 #include "evsignal.h"
 #include "log.h"

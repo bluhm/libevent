@@ -36,7 +36,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include "evutil.h"
 #include "event.h"
 
 /* prototypes */

@@ -45,7 +45,6 @@
 
 #include "event.h"
 #include "event-internal.h"
-#include "evutil.h"
 #include "log.h"
 
 extern const struct eventop selectops;
