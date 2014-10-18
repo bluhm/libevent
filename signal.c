@@ -289,11 +289,11 @@ evsignal_dealloc(struct event_base *base)
 	}
 
 	if (base->sig.ev_signal_pair[0] != -1) {
-		EVUTIL_CLOSESOCKET(base->sig.ev_signal_pair[0]);
+		close(base->sig.ev_signal_pair[0]);
 		base->sig.ev_signal_pair[0] = -1;
 	}
 	if (base->sig.ev_signal_pair[1] != -1) {
-		EVUTIL_CLOSESOCKET(base->sig.ev_signal_pair[1]);
+		close(base->sig.ev_signal_pair[1]);
 		base->sig.ev_signal_pair[1] = -1;
 	}
 	base->sig.sh_old_max = 0;
