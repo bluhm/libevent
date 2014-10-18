@@ -130,7 +130,7 @@ _warn_helper(int severity, int log_errno, const char *fmt, va_list ap)
 	if (log_errno >= 0) {
 		len = strlen(buf);
 		if (len < sizeof(buf) - 3) {
-			evutil_snprintf(buf + len, sizeof(buf) - len, ": %s",
+			snprintf(buf + len, sizeof(buf) - len, ": %s",
 			    strerror(log_errno));
 		}
 	}
