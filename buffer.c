@@ -130,7 +130,7 @@ evbuffer_add_vprintf(struct evbuffer *buf, const char *fmt, va_list ap)
 
 		va_copy(aq, ap);
 
-		sz = evutil_vsnprintf(buffer, space, fmt, aq);
+		sz = vsnprintf(buffer, space, fmt, aq);
 
 		va_end(aq);
 

@@ -123,7 +123,7 @@ _warn_helper(int severity, int log_errno, const char *fmt, va_list ap)
 	size_t len;
 
 	if (fmt != NULL)
-		evutil_vsnprintf(buf, sizeof(buf), fmt, ap);
+		vsnprintf(buf, sizeof(buf), fmt, ap);
 	else
 		buf[0] = '\0';
 
