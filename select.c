@@ -83,7 +83,7 @@ select_init(struct event_base *base)
 	struct selectop *sop;
 
 	/* Disable select when this environment variable is set */
-	if (evutil_getenv("EVENT_NOSELECT"))
+	if (!issetugid() && getenv("EVENT_NOSELECT"))
 		return (NULL);
 
 	if (!(sop = calloc(1, sizeof(struct selectop))))

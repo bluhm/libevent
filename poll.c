@@ -81,7 +81,7 @@ poll_init(struct event_base *base)
 	struct pollop *pollop;
 
 	/* Disable poll when this environment variable is set */
-	if (evutil_getenv("EVENT_NOPOLL"))
+	if (!issetugid() && getenv("EVENT_NOPOLL"))
 		return (NULL);
 
 	if (!(pollop = calloc(1, sizeof(struct pollop))))
