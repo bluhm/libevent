@@ -54,7 +54,7 @@ static inline void           min_heap_shift_down_(min_heap_t* s, unsigned hole_i
 
 int min_heap_elem_greater(struct event *a, struct event *b)
 {
-    return evutil_timercmp(&a->ev_timeout, &b->ev_timeout, >);
+    return timercmp(&a->ev_timeout, &b->ev_timeout, >);
 }
 
 void min_heap_ctor(min_heap_t* s) { s->p = 0; s->n = 0; s->a = 0; }
