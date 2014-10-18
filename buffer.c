@@ -414,7 +414,6 @@ evbuffer_read(struct evbuffer *buf, int fd, int howmuch)
 	size_t oldoff = buf->off;
 	int n = EVBUFFER_MAX_READ;
 
-#if defined(FIONREAD)
 	if (ioctl(fd, FIONREAD, &n) == -1 || n <= 0) {
 		n = EVBUFFER_MAX_READ;
 	} else if (n > EVBUFFER_MAX_READ && n > howmuch) {
@@ -430,7 +429,6 @@ evbuffer_read(struct evbuffer *buf, int fd, int howmuch)
 		if (n < EVBUFFER_MAX_READ)
 			n = EVBUFFER_MAX_READ;
 	}
-#endif	
 	if (howmuch < 0 || howmuch > n)
 		howmuch = n;
 
