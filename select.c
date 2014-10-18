@@ -48,10 +48,6 @@
 #include "evsignal.h"
 #include "log.h"
 
-#ifndef howmany
-#define        howmany(x, y)   (((x)+((y)-1))/(y))
-#endif
-
 struct selectop {
 	int event_fds;		/* Highest fd in fd set */
 	int event_fdsz;
