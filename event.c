@@ -108,7 +108,7 @@ gettime(struct event_base *base, struct timeval *tp)
 		return (0);
 	}
 
-	return (evutil_gettimeofday(tp, NULL));
+	return (gettimeofday(tp, NULL));
 }
 
 struct event_base *
@@ -667,7 +667,7 @@ event_pending(struct event *ev, short event, struct timeval *tv)
 		gettime(ev->ev_base, &now);
 		timersub(&ev->ev_timeout, &now, &res);
 		/* correctly remap to real time */
-		evutil_gettimeofday(&now, NULL);
+		gettimeofday(&now, NULL);
 		timeradd(&now, &res, tv);
 	}
 
