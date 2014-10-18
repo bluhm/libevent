@@ -66,7 +66,7 @@ evsignal_cb(int fd, short what, void *arg)
 int
 evsignal_init(struct event_base *base)
 {
-	int i, fd, flags;
+	int i, flags;
 
 	/* 
 	 * Our signal handler is going to write to one end of the socket
@@ -91,10 +91,9 @@ evsignal_init(struct event_base *base)
 	for (i = 0; i < NSIG; ++i)
 		TAILQ_INIT(&base->sig.evsigevents[i]);
 
-	fd = base->sig.ev_signal_pair[0];
-	if ((flags = fcntl(fd, F_GETFL, NULL)) == -1 ||
-	    fcntl(fd, F_SETFL, flags | O_NONBLOCK) == -1)
-		event_warn("fcntl(%d, O_NONBLOCK)", fd);
+	if ((flags = fcntl(base->sig.ev_signal_pair[0], F_GETFL, NULL)) == -1 ||
+	    fcntl(base->sig.ev_signal_pair[0], F_SETFL, flags|O_NONBLOCK) == -1)
+		event_warn("fcntl(signal_pair[0], O_NONBLOCK)");
 
 	event_set(&base->sig.ev_signal, base->sig.ev_signal_pair[1],
 		EV_READ | EV_PERSIST, evsignal_cb, &base->sig.ev_signal);
