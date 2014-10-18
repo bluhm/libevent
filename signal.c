@@ -78,7 +78,7 @@ evsignal_init(struct event_base *base)
 	 * pair to wake up our event loop.  The event loop then scans for
 	 * signals that got delivered.
 	 */
-	if (evutil_socketpair(
+	if (socketpair(
 		    AF_UNIX, SOCK_STREAM, 0, base->sig.ev_signal_pair) == -1) {
 		event_err(1, "%s: socketpair", __func__);
 		return -1;
