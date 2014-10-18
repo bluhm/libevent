@@ -1,4 +1,4 @@
-/*	$OpenBSD: evutil.c,v 1.8 2014/10/18 16:48:28 bluhm Exp $	*/
+/*	$OpenBSD: evutil.c,v 1.9 2014/10/18 21:56:44 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2007 Niels Provos <provos@citi.umich.edu>
