@@ -128,9 +128,6 @@ evbuffer_add_vprintf(struct evbuffer *buf, const char *fmt, va_list ap)
 		assert(buf->totallen >= used);
 		space = buf->totallen - used;
 
-#ifndef va_copy
-#define	va_copy(dst, src)	memcpy(&(dst), &(src), sizeof(va_list))
-#endif
 		va_copy(aq, ap);
 
 		sz = evutil_vsnprintf(buffer, space, fmt, aq);
