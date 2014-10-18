@@ -41,15 +41,6 @@
 #include <assert.h>
 #include <inttypes.h>
 
-/* Some platforms apparently define the udata field of struct kevent as
- * intptr_t, whereas others define it as void*.  There doesn't seem to be an
- * easy way to tell them apart via autoconf, so we need to use OS macros. */
-#if !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__darwin__) && !defined(__APPLE__)
-#define PTR_TO_UDATA(x)	((intptr_t)(x))
-#else
-#define PTR_TO_UDATA(x)	(x)
-#endif
-
 #include "event.h"
 #include "event-internal.h"
 #include "log.h"
@@ -326,7 +317,7 @@ kq_add(void *arg, struct event *ev)
 			kev.ident = nsignal;
 			kev.filter = EVFILT_SIGNAL;
 			kev.flags = EV_ADD;
-			kev.udata = PTR_TO_UDATA(&kqop->evsigevents[nsignal]);
+			kev.udata = &kqop->evsigevents[nsignal];
 			
 			/* Be ready for the signal if it is sent any
 			 * time between now and the next call to
@@ -356,7 +347,7 @@ kq_add(void *arg, struct event *ev)
 		kev.flags = EV_ADD;
 		if (!(ev->ev_events & EV_PERSIST))
 			kev.flags |= EV_ONESHOT;
-		kev.udata = PTR_TO_UDATA(ev);
+		kev.udata = ev;
 		
 		if (kq_insert(kqop, &kev) == -1)
 			return (-1);
@@ -371,7 +362,7 @@ kq_add(void *arg, struct event *ev)
 		kev.flags = EV_ADD;
 		if (!(ev->ev_events & EV_PERSIST))
 			kev.flags |= EV_ONESHOT;
-		kev.udata = PTR_TO_UDATA(ev);
+		kev.udata = ev;
 		
 		if (kq_insert(kqop, &kev) == -1)
 			return (-1);
