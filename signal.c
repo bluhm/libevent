@@ -79,7 +79,7 @@ evsignal_init(struct event_base *base)
 	}
 
 	if (fcntl(base->sig.ev_signal_pair[0], F_SETFD, FD_CLOEXEC) == -1)
-		event_warn("fcntl(ignal_pair[0], FD_CLOEXEC)");
+		event_warn("fcntl(signal_pair[0], FD_CLOEXEC)");
 	if (fcntl(base->sig.ev_signal_pair[1], F_SETFD, FD_CLOEXEC) == -1)
 		event_warn("fcntl(signal_pair[1], FD_CLOEXEC)");
 	base->sig.sh_old = NULL;
