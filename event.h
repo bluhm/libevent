@@ -168,11 +168,8 @@ extern "C" {
 #include <stdarg.h>
 #include <stdint.h>
 
-#define ev_uint64_t uint64_t
-#define ev_int64_t int64_t
-#define ev_uint32_t uint32_t
-#define ev_uint16_t uint16_t
-#define ev_uint8_t uint8_t
+/* For int types. */
+#include <evutil.h>
 
 #define EVLIST_TIMEOUT	0x01
 #define EVLIST_INSERTED	0x02
