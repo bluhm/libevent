@@ -1,4 +1,4 @@
-/*	$OpenBSD: signal.c,v 1.22 2014/10/18 16:48:28 bluhm Exp $	*/
+/*	$OpenBSD: signal.c,v 1.23 2014/10/29 22:47:29 bluhm Exp $	*/
 
 /*
  * Copyright 2000-2002 Niels Provos <provos@citi.umich.edu>

@@ -1,4 +1,4 @@
-/*	$OpenBSD: min_heap.h,v 1.2 2010/07/12 18:03:38 nicm Exp $	*/
+/*	$OpenBSD: min_heap.h,v 1.3 2014/10/29 22:47:29 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2006 Maxim Yegorushkin <maxim.yegorushkin@gmail.com>
