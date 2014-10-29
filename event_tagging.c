@@ -168,7 +168,7 @@ evtag_marshal(struct evbuffer *evbuf, ev_uint32_t tag,
 {
 	evtag_encode_tag(evbuf, tag);
 	encode_int(evbuf, len);
-	evbuffer_add(evbuf, (void *)data, len);
+	evbuffer_add(evbuf, data, len);
 }
 
 /* Marshaling for integers */
