@@ -67,7 +67,7 @@ evsignal_init(struct event_base *base)
 {
 	int i, flags;
 
-	/* 
+	/*
 	 * Our signal handler is going to write to one end of the socket
 	 * pair to wake up our event loop.  The event loop then scans for
 	 * signals that got delivered.
@@ -255,7 +255,7 @@ evsignal_process(struct event_base *base)
 	struct event *ev, *next_ev;
 	sig_atomic_t ncalls;
 	int i;
-	
+
 	base->sig.evsignal_caught = 0;
 	for (i = 1; i < NSIG; ++i) {
 		ncalls = sig->evsigcaught[i];

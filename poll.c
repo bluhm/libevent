@@ -338,7 +338,7 @@ poll_del(void *arg, struct event *ev)
 
 	--pop->nfds;
 	if (i != pop->nfds) {
-		/* 
+		/*
 		 * Shift the last pollfd down into the now-unoccupied
 		 * position.
 		 */

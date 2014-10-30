@@ -128,7 +128,7 @@
   callbacks have been registered for a given URI.
 
   @section evrpc A framework for RPC servers and clients
- 
+
   libevents provides a framework for creating RPC servers and clients.  It
   takes care of marshaling and unmarshaling all data structures.
 
@@ -290,13 +290,13 @@ int event_base_dispatch(struct event_base *);
 
 /**
  Get the kernel event notification mechanism used by libevent.
- 
+
  @param eb the event_base structure returned by event_base_new()
  @return a string identifying the kernel event mechanism (kqueue, epoll, etc.)
  */
 const char *event_base_get_method(struct event_base *);
-        
-        
+
+
 /**
   Deallocate all memory associated with an event_base, and free the base.
 
