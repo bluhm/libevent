@@ -49,7 +49,7 @@
 
 struct selectop {
 	int event_fds;		/* Highest fd in fd set */
-	int event_fdsz;
+	size_t event_fdsz;
 	fd_set *event_readset_in;
 	fd_set *event_writeset_in;
 	fd_set *event_readset_out;
