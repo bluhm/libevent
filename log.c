@@ -49,9 +49,9 @@
 #include "event.h"
 #include "log.h"
 
-static void _warn_helper(int severity, int log_errno, const char *fmt,
-                         va_list ap);
-static void event_log(int severity, const char *msg);
+static void	_warn_helper(int severity, int log_errno, const char *fmt,
+		    va_list ap);
+static void	event_log(int severity, const char *msg);
 
 void
 event_err(int eval, const char *fmt, ...)
