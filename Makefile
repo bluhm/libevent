@@ -60,17 +60,21 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG
 
-CDIAGFLAGS=	-Wall
-#CDIAGFLAGS+=	-Werror
-CDIAGFLAGS+=	-Wstrict-prototypes
-CDIAGFLAGS+=	-Wmissing-prototypes
-CDIAGFLAGS+=	-Wmissing-declarations
-CDIAGFLAGS+=	-Wshadow
-CDIAGFLAGS+=	-Wpointer-arith
-CDIAGFLAGS+=	-Wcast-qual
-CDIAGFLAGS+=	-Wsign-compare
-CDIAGFLAGS+=	-Wcast-align
-CDIAGFLAGS+=	-Wbad-function-cast
+CDIAGFLAGS=	-Wall \
+		-Wbad-function-cast \
+		-Wcast-align \
+		-Wcast-qual \
+		-Wdeclaration-after-statement \
+		-Werror \
+		-Wextra \
+		-Wmissing-declarations \
+		-Wmissing-prototypes \
+		-Wpointer-arith \
+		-Wshadow \
+		-Wsign-compare \ \
+		-Wstrict-prototypes \
+		-Wuninitialized \
+		-Wunused
 
 includes:
 	@cd ${.CURDIR}; for i in ${HDRS}; do \
