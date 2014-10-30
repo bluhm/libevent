@@ -631,7 +631,7 @@ int event_pending(struct event *ev, short event, struct timeval *tv);
 
   @param ev an event structure to be tested
   @return 1 if the structure has been initialized, or 0 if it has not been
-          initialized
+         initialized
  */
 #define event_initialized(ev)		((ev)->ev_flags & EVLIST_INIT)
 
@@ -796,7 +796,7 @@ struct bufferevent {
   enabling the bufferevent for the first time.
 
   @param fd the file descriptor from which data is read and written to.
-  		This file descriptor is not allowed to be a pipe(2).
+         This file descriptor is not allowed to be a pipe(2).
   @param readcb callback to invoke when there is data to be read, or NULL if
          no callback is desired
   @param writecb callback to invoke when the file descriptor is ready for
@@ -806,7 +806,7 @@ struct bufferevent {
   @param cbarg an argument that will be supplied to each of the callbacks
          (readcb, writecb, and errorcb)
   @return a pointer to a newly allocated bufferevent struct, or NULL if an
-          error occurred
+         error occurred
   @see bufferevent_base_set(), bufferevent_free()
   */
 struct bufferevent *bufferevent_new(int fd,
@@ -970,7 +970,7 @@ void bufferevent_setwatermark(struct bufferevent *bufev, short events,
   Allocate storage for a new evbuffer.
 
   @return a pointer to a newly allocated evbuffer struct, or NULL if an error
-          occurred
+         occurred
  */
 struct evbuffer *evbuffer_new(void);
 
