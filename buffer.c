@@ -1,4 +1,4 @@
-/*	$OpenBSD: buffer.c,v 1.25 2014/10/29 22:47:29 bluhm Exp $	*/
+/*	$OpenBSD: buffer.c,v 1.26 2014/10/30 16:45:37 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2002, 2003 Niels Provos <provos@citi.umich.edu>

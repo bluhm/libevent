@@ -1,4 +1,4 @@
-/*	$OpenBSD: evbuffer.c,v 1.16 2014/10/29 22:47:29 bluhm Exp $	*/
+/*	$OpenBSD: evbuffer.c,v 1.17 2014/10/30 16:45:37 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2002-2004 Niels Provos <provos@citi.umich.edu>
