@@ -74,7 +74,7 @@ const struct eventop selectops = {
 	0
 };
 
-static int select_resize(struct selectop *sop, int fdsz);
+static int select_resize(struct selectop *sop, size_t fdsz);
 
 static void *
 select_init(struct event_base *base)
@@ -184,7 +184,7 @@ select_dispatch(struct event_base *base, void *arg, struct timeval *tv)
 
 
 static int
-select_resize(struct selectop *sop, int fdsz)
+select_resize(struct selectop *sop, size_t fdsz)
 {
 	int n_events, n_events_old;
 
@@ -256,7 +256,7 @@ select_add(void *arg, struct event *ev)
 	 * of the fd_sets for select(2)
 	 */
 	if (sop->event_fds < ev->ev_fd) {
-		int fdsz = sop->event_fdsz;
+		size_t fdsz = sop->event_fdsz;
 
 		if (fdsz < sizeof(fd_mask))
 			fdsz = sizeof(fd_mask);
