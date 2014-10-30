@@ -186,7 +186,7 @@ select_dispatch(struct event_base *base, void *arg, struct timeval *tv)
 static int
 select_resize(struct selectop *sop, size_t fdsz)
 {
-	int n_events, n_events_old;
+	size_t n_events, n_events_old;
 
 	fd_set *readset_in = NULL;
 	fd_set *writeset_in = NULL;
