@@ -62,24 +62,13 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG
 
-CDIAGFLAGS=	-Wall \
-		-Wbad-function-cast \
+CDIAGFLAGS+=	-Wbad-function-cast \
 		-Wcast-align \
 		-Wcast-qual \
-		-Werror \
 		-Wextra \
 		-Wmissing-declarations \
-		-Wmissing-prototypes \
-		-Wpointer-arith \
-		-Wshadow \
-		-Wsign-compare \
-		-Wstrict-prototypes \
 		-Wuninitialized \
-		-Wunused \
 		-Wno-unused-parameter
-.if ${COMPILER_VERSION} == "gcc4"
-CDIAGFLAGS+=	-Wdeclaration-after-statement
-.endif
 
 includes:
 	@cd ${.CURDIR}; for i in ${HDRS}; do \
