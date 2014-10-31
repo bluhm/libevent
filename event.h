@@ -1,4 +1,4 @@
-/*	$OpenBSD: event.h,v 1.28 2014/10/30 16:45:37 bluhm Exp $	*/
+/*	$OpenBSD: event.h,v 1.29 2014/10/31 16:00:44 bluhm Exp $	*/
 
 /*
  * Copyright (c) 2000-2007 Niels Provos <provos@citi.umich.edu>
