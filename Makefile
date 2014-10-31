@@ -62,7 +62,7 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG
 
-# use more warnings that defined in bsd.own.mk
+# use more warnings than defined in bsd.own.mk
 CDIAGFLAGS+=	-Wbad-function-cast
 CDIAGFLAGS+=	-Wcast-align
 CDIAGFLAGS+=	-Wcast-qual
