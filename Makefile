@@ -74,7 +74,8 @@ CDIAGFLAGS=	-Wall \
 		-Wshadow \
 		-Wsign-compare \
 		-Wstrict-prototypes \
-		-Wunused
+		-Wunused \
+		-Wno-unused-parameter
 .if ${COMPILER_VERSION} == "gcc4"
 CDIAGFLAGS+=	-Wdeclaration-after-statement \
 		-Wuninitialized
