@@ -62,13 +62,13 @@ MLINKS=	event.3 bufferevent_base_set.3 \
 
 CFLAGS+= -I${.CURDIR} -DNDEBUG
 
-CDIAGFLAGS+=	-Wbad-function-cast \
-		-Wcast-align \
-		-Wcast-qual \
-		-Wextra \
-		-Wmissing-declarations \
-		-Wuninitialized \
-		-Wno-unused-parameter
+CDIAGFLAGS+=	-Wbad-function-cast
+CDIAGFLAGS+=	-Wcast-align
+CDIAGFLAGS+=	-Wcast-qual
+CDIAGFLAGS+=	-Wextra
+CDIAGFLAGS+=	-Wmissing-declarations
+CDIAGFLAGS+=	-Wuninitialized
+CDIAGFLAGS+=	-Wno-unused-parameter
 
 includes:
 	@cd ${.CURDIR}; for i in ${HDRS}; do \
