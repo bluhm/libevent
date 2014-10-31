@@ -1,5 +1,7 @@
 #	$OpenBSD: Makefile,v 1.38 2014/10/18 16:48:28 bluhm Exp $
 
+.include <bsd.own.mk>
+
 LIB=	event
 SRCS=	buffer.c evbuffer.c event.c event_tagging.c evutil.c kqueue.c \
 	log.c poll.c select.c signal.c
@@ -64,17 +66,19 @@ CDIAGFLAGS=	-Wall \
 		-Wbad-function-cast \
 		-Wcast-align \
 		-Wcast-qual \
-		-Wdeclaration-after-statement \
 		-Werror \
 		-Wextra \
 		-Wmissing-declarations \
 		-Wmissing-prototypes \
 		-Wpointer-arith \
 		-Wshadow \
-		-Wsign-compare \ \
+		-Wsign-compare \
 		-Wstrict-prototypes \
-		-Wuninitialized \
 		-Wunused
+.if ${COMPILER_VERSION} == "gcc4"
+CDIAGFLAGS+=	-Wdeclaration-after-statement \
+		-Wuninitialized
+.endif
 
 includes:
 	@cd ${.CURDIR}; for i in ${HDRS}; do \
