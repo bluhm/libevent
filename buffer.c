@@ -33,6 +33,7 @@
 
 #include <assert.h>
 #include <errno.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -318,10 +319,6 @@ evbuffer_align(struct evbuffer *buf)
 	buf->buffer = buf->orig_buffer;
 	buf->misalign = 0;
 }
-
-#ifndef SIZE_MAX
-#define SIZE_MAX ((size_t)-1)
-#endif
 
 /* Expands the available space in the event buffer to at least datlen */
 
