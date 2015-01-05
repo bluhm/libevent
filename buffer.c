@@ -326,7 +326,6 @@ int
 evbuffer_expand(struct evbuffer *buf, size_t datlen)
 {
 	size_t used = buf->misalign + buf->off;
-	size_t need;
 
 	assert(buf->totallen >= used);
 
