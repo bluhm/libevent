@@ -58,8 +58,10 @@ evsignal_cb(int fd, short what, void *arg)
 	ssize_t n;
 
 	n = recv(fd, signals, sizeof(signals), 0);
-	if (n == -1)
-		event_err(1, "%s: read", __func__);
+	if (n == -1) {
+		if (errno != EAGAIN)
+			event_err(1, "%s: read", __func__);
+	}
 }
 
 int
@@ -93,6 +95,9 @@ evsignal_init(struct event_base *base)
 	if ((flags = fcntl(base->sig.ev_signal_pair[0], F_GETFL, NULL)) == -1 ||
 	    fcntl(base->sig.ev_signal_pair[0], F_SETFL, flags|O_NONBLOCK) == -1)
 		event_warn("fcntl(signal_pair[0], O_NONBLOCK)");
+	if ((flags = fcntl(base->sig.ev_signal_pair[1], F_GETFL, NULL)) == -1 ||
+	    fcntl(base->sig.ev_signal_pair[1], F_SETFL, flags|O_NONBLOCK) == -1)
+		event_warn("fcntl(signal_pair[1], O_NONBLOCK)");
 
 	event_set(&base->sig.ev_signal, base->sig.ev_signal_pair[1],
 		EV_READ | EV_PERSIST, evsignal_cb, &base->sig.ev_signal);
