@@ -349,7 +349,7 @@ event_process_active(struct event_base *base)
 			ev->ev_ncalls = ncalls;
 			(*ev->ev_callback)((int)ev->ev_fd, ev->ev_res, ev->ev_arg);
 			if (event_gotsig || base->event_break) {
-			  	ev->ev_pncalls = NULL;
+				ev->ev_pncalls = NULL;
 				return;
 			}
 		}
