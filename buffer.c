@@ -1,4 +1,4 @@
-/*	$OpenBSD: buffer.c,v 1.28 2015/01/05 23:14:36 bluhm Exp $	*/
+/*	$OpenBSD: buffer.c,v 1.31 2017/03/18 01:48:43 deraadt Exp $	*/
 
 /*
  * Copyright (c) 2002, 2003 Niels Provos <provos@citi.umich.edu>
@@ -33,7 +33,7 @@
 
 #include <assert.h>
 #include <errno.h>
-#include <limits.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,8 +56,7 @@ evbuffer_new(void)
 void
 evbuffer_free(struct evbuffer *buffer)
 {
-	if (buffer->orig_buffer != NULL)
-		free(buffer->orig_buffer);
+	free(buffer->orig_buffer);
 	free(buffer);
 }
 
@@ -360,7 +359,8 @@ evbuffer_expand(struct evbuffer *buf, size_t datlen)
 
 		if (buf->orig_buffer != buf->buffer)
 			evbuffer_align(buf);
-		if ((newbuf = realloc(buf->buffer, length)) == NULL)
+		if ((newbuf = recallocarray(buf->buffer, buf->totallen,
+		    length, 1)) == NULL)
 			return (-1);
 
 		buf->orig_buffer = buf->buffer = newbuf;

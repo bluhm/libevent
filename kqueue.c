@@ -1,4 +1,4 @@
-/*	$OpenBSD: kqueue.c,v 1.36 2014/10/30 16:45:37 bluhm Exp $	*/
+/*	$OpenBSD: kqueue.c,v 1.40 2017/07/10 21:37:26 tedu Exp $	*/
 
 /*
  * Copyright 2000-2002 Niels Provos <provos@citi.umich.edu>
@@ -190,7 +190,7 @@ kq_dispatch(struct event_base *base, void *arg, struct timeval *tv)
 		ts_p = &ts;
 	}
 
-	res = kevent(kqop->kq, changes, kqop->nchanges,
+	res = kevent(kqop->kq, kqop->nchanges ? changes : NULL, kqop->nchanges,
 	    events, kqop->nevents, ts_p);
 	kqop->nchanges = 0;
 	if (res == -1) {
@@ -420,10 +420,8 @@ kq_dealloc(struct event_base *base, void *arg)
 
 	evsignal_dealloc(base);
 
-	if (kqop->changes)
-		free(kqop->changes);
-	if (kqop->events)
-		free(kqop->events);
+	free(kqop->changes);
+	free(kqop->events);
 	if (kqop->kq >= 0 && kqop->pid == getpid())
 		close(kqop->kq);
 
